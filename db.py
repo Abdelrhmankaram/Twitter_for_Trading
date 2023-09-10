@@ -239,7 +239,8 @@ def get_phone(user_id):
 
     cur.close()
 def main():
-    delete_product(1)
+    for i in range(2,12):
+        delete_product(i)
 
 main()
 
