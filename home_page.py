@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import PhotoImage
 
 
+
 class HomePage(tk.Frame):
     def __init__(self, parent, switch_to_signin, switch_to_CategoryPage, switch_to_AddProductPage, user_id, switch_to_UserProductsPage):
         super().__init__(parent, bg="white")
