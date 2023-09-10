@@ -6,7 +6,7 @@ class HomePage(tk.Frame):
         super().__init__(parent,bg="white")
         self.user_id=user_id
         self.parent = parent
-        self.parent.title("Twitter\homepage")
+        self.parent.title("Twitter")
         self.img = PhotoImage(file='images\options_window.png')
         tk.Label(self, image=self.img, bg='white').place(x=50, y=50)
         self.frame = tk.Frame(self, width=350, height=350, bg="white")

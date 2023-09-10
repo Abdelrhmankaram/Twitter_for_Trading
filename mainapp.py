@@ -16,7 +16,7 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Twitter\login")
+        self.title("Twitter")
         self.geometry("950x500+300+200")
         self.iconbitmap('images\wittericon.ico')
         self.iconphoto(True,ImageTk.PhotoImage(Image.open("images/Twitter_TaskBar_Icon.png")))
