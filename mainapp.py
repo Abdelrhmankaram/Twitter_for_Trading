@@ -1,4 +1,5 @@
 import tkinter as tk
+import customtkinter as ctk
 from Browse_products import BrowseProductsPage
 from Signup import SignupPage
 from Login import LoginPage
@@ -7,7 +8,7 @@ from select_cat import CategoryPage
 from home_page import HomePage
 from user_product import UserProductsPage 
 
-class App(tk.Tk):
+class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Twitter\login")
