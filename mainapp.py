@@ -1,5 +1,4 @@
-import tkinter as tk
-import customtkinter as ctk
+import customtkinter as tk
 from Browse_products import BrowseProductsPage
 from Signup import SignupPage
 from Login import LoginPage
@@ -7,19 +6,14 @@ from add_product import AddProductPage
 from select_cat import CategoryPage
 from home_page import HomePage
 from user_product import UserProductsPage 
-from PIL import Image, ImageTk
-import ctypes
-myappid = u'mycompany.myproduct.subproduct.version'
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
-
-class App(ctk.CTk):
+class App(tk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Twitter")
         self.geometry("950x500+300+200")
+        self.attributes('-fullscreen',True);
         self.iconbitmap('images\wittericon.ico')
-        self.iconphoto(True,ImageTk.PhotoImage(Image.open("images/Twitter_TaskBar_Icon.png")))
         self.config(bg="#FFF")
         self.resizable(False, False)
         self.current_page = None
@@ -69,4 +63,4 @@ class App(ctk.CTk):
         
 if __name__ == "__main__":
     app = App()
-    app.mainloop() 
+    app.mainloop()
