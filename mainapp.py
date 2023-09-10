@@ -1,4 +1,4 @@
-import customtkinter as tk
+import tkinter as tk
 from Browse_products import BrowseProductsPage
 from Signup import SignupPage
 from Login import LoginPage
@@ -7,12 +7,11 @@ from select_cat import CategoryPage
 from home_page import HomePage
 from user_product import UserProductsPage 
 
-class App(tk.CTk):
+class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Twitter")
         self.geometry("950x500+300+200")
-        self.attributes('-fullscreen',True);
         self.iconbitmap('images\wittericon.ico')
         self.config(bg="#FFF")
         self.resizable(False, False)
