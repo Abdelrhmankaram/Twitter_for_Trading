@@ -42,7 +42,7 @@ class LoginPage(ctk.CTkFrame):
         ctk.CTkFrame(self.frame, width=310, height=1.5,
                      bg_color="black", fg_color="black").place(x=x, y=y)
 
-        ctk.CTkButton(self.frame, width=39,  text="Sign in", bg_color='white',
+        ctk.CTkButton(self.frame, width=50,height=30,  text="Sign in", bg_color='white',
                       fg_color="#57A1F8", text_color="white", font=("TkDefaultFont", 20), border_width=0,
                       command=self.loginlogic, hover=False).place(x=x+100, y=225)
 
