@@ -30,13 +30,14 @@ class LoginPage(ctk.CTkFrame):
         self.user.bind('<FocusOut>', self.on_leave_user)
         ctk.CTkFrame(self.frame, width=310, height=1.5,
                      bg_color="black", fg_color="black").place(x=x, y=y)
-
-        self.password = tk.Entry(self.frame, width=25, fg="black",
-                                 border=0, bg="white", font=("Microsoft YaHei UI Light", 15))
-        self.password.place(x=35, y=165)
+        y+=40
+        self.password = ctk.CTkEntry(self.frame, width=350, fg_color="white", border_width=0,
+                                 bg_color="white", font=("Century Gothic", 20))
+        self.password.place(x=x-2, y=y)
         self.password.insert(0, "Password")
         self.password.bind('<FocusIn>', self.on_enter_pass)
         self.password.bind('<FocusOut>', self.on_leave_pass)
+        y+=40
         ctk.CTkFrame(self.frame, width=310, height=1.5,
                      bg_color="black", fg_color="black").place(x=x, y=y)
 
