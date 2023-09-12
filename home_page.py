@@ -14,7 +14,7 @@ class HomePage(ctk.CTkFrame):
         self.frame.place(x=480, y=70)
         heading = ctk.CTkLabel(self.frame, text="Options", fg_color="white",text_color="#57A1F8", bg_color="white", font=("Century Gothic", 28))
         heading.place(x=110, y=5)
-        x=60;
+        x=70;
         y = 80
         ctk.CTkButton(self.frame, width=200, text="Browse products",text_color="white", bg_color='white', fg_color="#57A1F8",font=("TkDefaultFont", 20), border_width=0,command=lambda:switch_to_CategoryPage(self.user_id)).place(x=x, y=y)
         y += 60
