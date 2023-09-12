@@ -6,6 +6,11 @@ from add_product import AddProductPage
 from select_cat import CategoryPage
 from home_page import HomePage
 from user_product import UserProductsPage
+from PIL import Image, ImageTk
+import ctypes
+
+myappid = u'mycompany.myproduct.subproduct.version'
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 class App(ctk.CTk):
     def __init__(self):
@@ -13,6 +18,11 @@ class App(ctk.CTk):
         self.title("Twitter")
         self.geometry("950x500+300+200")
         self.config(background="white")
+        self.icon = Image.open("images\wittericon.ico")
+        self.icon = ImageTk.PhotoImage(self.icon)
+ 
+        # Set the taskbar icon
+        self.iconphoto(True, self.icon)
         self.iconbitmap('images\wittericon.ico')
         self.resizable(False, False)
         self.current_page = None

@@ -14,40 +14,44 @@ class SignupPage(ctk.CTkFrame):
         self.switch_to_HomePage = switch_to_HomePage
         self.switch_to_loginn = switch_to_login
         self.img = ImageTk.PhotoImage(Image.open('images/signup.png'))
-        tk.Label(self, image=self.img, bg='white').place(x=5, y=140)
+        tk.Label(self, image=self.img, bg='white').place(x=60, y=140)
         self.frame = ctk.CTkFrame(
             self, width=350, height=550, fg_color="white", bg_color="white")
         self.frame.place(x=480, y=10)
-        self.heading = ctk.CTkLabel(self.frame, text="Signup", fg_color="white", bg_color="white", font=("Century Gothic", 28),text_color="#57A1F8")
+        self.heading = ctk.CTkLabel(self.frame, text="Signup", fg_color="white", bg_color="white", font=(
+            "Century Gothic", 28), text_color="#57A1F8")
         self.heading.place(x=130, y=5)
 
         y = 60
         self.name = self.create_entry(
             "Name", y, on_enter=self.on_enter_name, on_leave=self.on_leave_name)
         y += 65
-        self.user = self.create_entry("Username", y, on_enter=self.on_enter_user, on_leave=self.on_leave_user)
+        self.user = self.create_entry(
+            "Username", y, on_enter=self.on_enter_user, on_leave=self.on_leave_user)
         y += 65
-        self.email = self.create_entry("Email", y, on_enter=self.on_enter_email, on_leave=self.on_leave_email)
+        self.email = self.create_entry(
+            "Email", y, on_enter=self.on_enter_email, on_leave=self.on_leave_email)
         y += 65
-        self.num = self.create_entry("Phone number", y, on_enter=self.on_enter_num, on_leave=self.on_leave_num)
+        self.num = self.create_entry(
+            "Phone number", y, on_enter=self.on_enter_num, on_leave=self.on_leave_num)
         y += 65
         self.password = self.create_entry(
             "Password", y, on_enter=self.on_enter_pass, on_leave=self.on_leave_pass)
-        y += 45
+        y += 55
 
-        ctk.CTkButton(self.frame, width=50,height=30, bg_color='white',
+        ctk.CTkButton(self.frame, width=50, height=30, bg_color='white',
                       fg_color="#57A1F8", text_color="white", hover=False, font=("TkDefaultFont", 20), border_width=0, text="Sign up", command=self.sign_up_command).place(x=135, y=y)
-        y += 56
+        y += 46
 
         label = ctk.CTkLabel(self.frame, text="Already have an account?",
-                             fg_color="white",text_color="black", bg_color="white", font=("TkDefaultFont", 12))
+                             fg_color="white", text_color="black", bg_color="white", font=("TkDefaultFont", 12))
         label.place(x=75, y=y)
-        ctk.CTkButton(self.frame, width=6, border_width=0,hover=False,
-                                     bg_color="white",font=("TkDefaultFont", 12), cursor='hand2', fg_color="white", text_color="#57A1F8",text="Sign in", command=switch_to_login).place(x=220, y=y)
+        ctk.CTkButton(self.frame, width=6, border_width=0, hover=False,
+                      bg_color="white", font=("TkDefaultFont", 12), cursor='hand2', fg_color="white", text_color="#57A1F8", text="Sign in", command=switch_to_login).place(x=220, y=y)
 
     def create_entry(self, placeholder, y, on_enter, on_leave):
         entry = ctk.CTkEntry(self.frame, width=350, fg_color="white",
-                             bg_color="white",border_width=0,text_color="black", font=("Century Gothic", 20))
+                             bg_color="white", border_width=0, text_color="black", font=("Century Gothic", 20))
         entry.place(x=30, y=y)
         entry.insert(0, placeholder)
         entry.bind('<FocusIn>', on_enter)
@@ -69,7 +73,8 @@ class SignupPage(ctk.CTkFrame):
                 self.name.delete(0, 'end')
                 self.name.insert(0, s)
             else:
-                messagebox.showinfo("Caution!", "name should only contain alphabet letters.", parent=self)
+                messagebox.showinfo(
+                    "Caution!", "name should only contain alphabet letters.", parent=self)
                 self.name.delete(0, 'end')
                 self.name.insert(0, 'Name')
 
@@ -90,7 +95,8 @@ class SignupPage(ctk.CTkFrame):
             self.email.insert(0, 'Email')
         else:
             if not SignUp_validation.email_check(self.email.get()):
-                messagebox.showinfo("Caution!", "Invalid Email address", parent=self)
+                messagebox.showinfo(
+                    "Caution!", "Invalid Email address", parent=self)
                 self.email.delete(0, 'end')
                 self.email.insert(0, 'Email')
 
@@ -104,7 +110,8 @@ class SignupPage(ctk.CTkFrame):
         else:
             s = SignUp_validation.fix(self.num.get())
             if not SignUp_validation.phone_num_validate(s):
-                messagebox.showinfo("Caution!", "Phone number should be 11 digits", parent=self)
+                messagebox.showinfo(
+                    "Caution!", "Phone number should be 11 digits", parent=self)
                 self.num.delete(0, 'end')
                 self.num.insert(0, 'Phone number')
 
@@ -117,11 +124,15 @@ class SignupPage(ctk.CTkFrame):
             self.password.insert(0, 'Password')
 
     def sign_up_command(self):
-        
-        b1 = self.name.get() != 'Name' and self.name.get() != '' and SignUp_validation.name_validate(SignUp_validation.fix(self.name.get()))
-        b2 = self.user.get() != 'Username' and self.user.get() != '' and check_user_name_available(self.user.get()) 
-        b3 = self.email.get() != 'Email' and self.email.get() != '' and SignUp_validation.email_check(self.email.get())
-        b4 = self.num.get() != 'Phone number' and self.num.get() != '' and SignUp_validation.phone_num_validate(SignUp_validation.fix(self.num.get()))
+
+        b1 = self.name.get() != 'Name' and self.name.get(
+        ) != '' and SignUp_validation.name_validate(SignUp_validation.fix(self.name.get()))
+        b2 = self.user.get() != 'Username' and self.user.get(
+        ) != '' and check_user_name_available(self.user.get())
+        b3 = self.email.get() != 'Email' and self.email.get(
+        ) != '' and SignUp_validation.email_check(self.email.get())
+        b4 = self.num.get() != 'Phone number' and self.num.get(
+        ) != '' and SignUp_validation.phone_num_validate(SignUp_validation.fix(self.num.get()))
         b5 = self.password.get() != 'Password' and self.password.get() != ''
 
         if b1 and b2 and b3 and b4 and b5:

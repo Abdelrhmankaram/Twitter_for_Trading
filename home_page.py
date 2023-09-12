@@ -16,11 +16,11 @@ class HomePage(ctk.CTkFrame):
         heading.place(x=110, y=5)
         x=70;
         y = 80
-        ctk.CTkButton(self.frame, width=200, text="Browse products",text_color="white", bg_color='white', fg_color="#57A1F8",font=("TkDefaultFont", 20), border_width=0,command=lambda:switch_to_CategoryPage(self.user_id)).place(x=x, y=y)
+        ctk.CTkButton(self.frame, width=200, text="Browse products",text_color="white", bg_color='white', fg_color="#57A1F8",font=("TkDefaultFont", 20), border_width=0,hover=False,command=lambda:switch_to_CategoryPage(self.user_id)).place(x=x, y=y)
         y += 60
         ctk.CTkButton(self.frame, width=200, text="Sell new product", fg_color='#57A1F8', bg_color="white",text_color="white", border_width=0,
-        font=("TkDefaultFont", 20),command=lambda:switch_to_AddProductPage(self.user_id)).place(x=x, y=y)
+        font=("TkDefaultFont", 20),hover=False,command=lambda:switch_to_AddProductPage(self.user_id)).place(x=x, y=y)
         y += 60
-        ctk.CTkButton(self.frame, width=200, text="View your products", fg_color='#57A1F8', bg_color="white",font=("TkDefaultFont", 20),text_color="white", border_width=0,command=lambda:switch_to_UserProductsPage(self.user_id)).place(x=x, y=y)
+        ctk.CTkButton(self.frame, width=200, text="View your products", fg_color='#57A1F8', bg_color="white",font=("TkDefaultFont", 20),text_color="white", border_width=0,hover=False,command=lambda:switch_to_UserProductsPage(self.user_id)).place(x=x, y=y)
         y += 90
-        ctk.CTkButton(self.frame, width=19, text="Log out", fg_color='#57A1F8', bg_color="white",text_color="white", font=("TkDefaultFont", 20),border_width=0, command=switch_to_signin).place(x=x+200, y=y)
+        ctk.CTkButton(self.frame, width=19, text="Log out", fg_color='#57A1F8', bg_color="white",text_color="white", font=("TkDefaultFont", 20),border_width=0,hover=False, command=switch_to_signin).place(x=x+190, y=y)

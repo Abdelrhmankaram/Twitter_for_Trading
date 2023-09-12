@@ -40,7 +40,7 @@ class AddProductPage(ctk.CTkFrame):
             "Price", y, on_enter=self.on_enter_price, on_leave=self.on_leave_price)
         y += 55
         self.path = ctk.CTkButton(self, width=19, text="Select image",font=("TkDefaultFont", 20),
-                              fg_color='#57A1F8', bg_color="white",text_color="white", border_width=0, command=self.upload_file)
+                              fg_color='#57A1F8', bg_color="white",text_color="white", border_width=0,hover=False, command=self.upload_file)
         self.path.place(x=110, y=y)
         y += 45
         self.description = self.create_entry(
@@ -48,10 +48,10 @@ class AddProductPage(ctk.CTkFrame):
         y += 55
 
         ctk.CTkButton(self.frame, width=39, text="Add Product", fg_color='#57A1F8',font=("TkDefaultFont", 20),
-                  bg_color="white",text_color="white", border_width=0, command=self.add_product_command).place(x=25, y=y)
+                  bg_color="white",text_color="white", border_width=0,hover=False, command=self.add_product_command).place(x=25, y=y)
         y += 45
         ctk.CTkButton(self.frame, width=39, text="Back", fg_color='#57A1F8',font=("TkDefaultFont", 20), bg_color="white",text_color="white",
-                  border_width=0, command=lambda: switch_to_HomePage(user_id)).place(x=25, y=y)
+                  border_width=0,hover=False, command=lambda: switch_to_HomePage(user_id)).place(x=25, y=y)
 
     def upload_file(self):
         f_types = [('Jpg Files', '*.jpg'), ('PNG Files', '*.png')]

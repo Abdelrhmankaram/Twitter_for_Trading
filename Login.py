@@ -13,12 +13,12 @@ class LoginPage(ctk.CTkFrame):
         self.user_id = None
         self.img = ImageTk.PhotoImage(Image.open('images\login.png'))
         tk.Label(self, image=self.img, bg='white',
-                     text="").place(x=10, y=110)
+                     text="").place(x=60, y=110)
         self.frame = ctk.CTkFrame(
             self, width=350, height=350, fg_color="white")
         self.frame.place(x=480, y=70)
         self.heading = ctk.CTkLabel(self.frame, text="Login", text_color="#57A1F8", fg_color="white", bg_color="white", font=("Century Gothic", 28))
-        self.heading.place(x=150, y=10)
+        self.heading.place(x=170, y=10)
         self.user = ctk.CTkEntry(self.frame, width=350, fg_color="white", border_width=0,
                                  bg_color="white", font=("Century Gothic", 20))
         x = 50
@@ -43,7 +43,7 @@ class LoginPage(ctk.CTkFrame):
 
         ctk.CTkButton(self.frame, width=50,height=30, bg_color='white',
                       fg_color="#57A1F8", text_color="white", hover=False, font=("TkDefaultFont", 20), border_width=0,
-                      command=self.loginlogic, text="Sign in").place(x=x+100, y=225)
+                      command=self.loginlogic, text="Sign in").place(x=x+120, y=225)
 
         self.label = ctk.CTkLabel(self.frame, text="Don't have an account?",
                                   fg_color="white", text_color="black", bg_color="white", font=("TkDefaultFont", 12))

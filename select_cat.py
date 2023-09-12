@@ -28,7 +28,7 @@ class CategoryPage(ctk.CTkFrame):
         y += 60
         self.category_button("Other", y)
         y += 60
-        ctk.CTkButton(self.frame, width=19,  text="Back", fg_color='#57A1F8', bg_color="white",text_color="white", border_width=0,font=("TkDefaultFont", 20), command= lambda:switch_to_HomePage(user_id)).place(x=235, y=y)
+        ctk.CTkButton(self.frame, width=19,  text="Back", fg_color='#57A1F8', bg_color="white",text_color="white", border_width=0,font=("TkDefaultFont", 20),hover=False, command= lambda:switch_to_HomePage(user_id)).place(x=235, y=y)
 
     def category_button(self, text, y):
-        ctk.CTkButton(self.frame, width=39, text=text, fg_color='#57A1F8', bg_color="white",text_color="white", font=("TkDefaultFont", 20),border_width=0,command=lambda:self.switch_to_BrowseProductsPage(self.user_id,text)).place(x=35, y=y)
+        ctk.CTkButton(self.frame, width=39, text=text, fg_color='#57A1F8', bg_color="white",text_color="white", font=("TkDefaultFont", 20),border_width=0,hover=False,command=lambda:self.switch_to_BrowseProductsPage(self.user_id,text)).place(x=35, y=y)

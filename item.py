@@ -39,7 +39,7 @@ class ItemListPage(tk.Frame):
         super().__init__(parent,bg="white")
         self.items = items
         self.flag=flag
-        self.canvas = tk.Canvas(self, bg='white', height=500, width=500)  # Set canvas size
+        self.canvas = tk.Canvas(self, bg='white', height=600, width=500)  # Set canvas size
         self.scroll_y = tk.Scrollbar(self, orient='vertical', command=self.canvas.yview)
         self.scroll_y.pack(side='right', fill='y')
         self.canvas.pack(side='left', fill='both', expand=True)
