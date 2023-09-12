@@ -52,7 +52,7 @@ class App(ctk.CTk):
 
     def switch_to_AddProductPage(self, user_id):
         if self.current_page is not None:
-            self.current_page.destroy()
+            self.current_page.destroy() 
         self.current_page = AddProductPage(
             self, self.switch_to_HomePage, user_id)
         self.current_page.pack(fill="both", expand=True)
