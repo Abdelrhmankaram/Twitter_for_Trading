@@ -1,12 +1,13 @@
 import tkinter as tk
+import customtkinter as ctk
 from PIL import Image, ImageTk
 
 from db import delete_product, get_phone
 
-class CustomItem(tk.Frame):
+class CustomItem(ctk.CTkFrame):
     def __init__(self, parent, product_object,flag):
-        super().__init__(parent,bg="white")
-        self.configure(bg="white", height=170, width=500, cursor='hand2')
+        super().__init__(parent,fg_color="white",bg_color="white")
+        self.configure(bg_color="white", height=170, width=500, cursor='hand2')
         self.product_id=product_object.product_id
         self.pic = Image.open(product_object.picture)
         self.pic = self.pic.resize((160, 120))
@@ -34,9 +35,9 @@ class CustomItem(tk.Frame):
         self.destroy()
         delete_product(self.product_id)
 
-class ItemListPage(tk.Frame):
+class ItemListPage(ctk.CTkFrame):
     def __init__(self, parent, items,flag):
-        super().__init__(parent,bg="white")
+        super().__init__(parent,fg_color="white",bg_color="white")
         self.items = items
         self.flag=flag
         self.canvas = tk.Canvas(self, bg='white', height=600, width=500)  # Set canvas size
@@ -45,7 +46,7 @@ class ItemListPage(tk.Frame):
         self.canvas.pack(side='left', fill='both', expand=True)
         self.canvas.configure(yscrollcommand=self.scroll_y.set)
 
-        self.frame = tk.Frame(self.canvas, bg='white')
+        self.frame = ctk.CTkFrame(self.canvas, bg_color='white',fg_color="white")
         self.canvas.create_window((0, 0), window=self.frame, anchor='nw', width=500)  # Set frame width
 
         self.populate_frame()
