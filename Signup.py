@@ -14,7 +14,7 @@ class SignupPage(ctk.CTkFrame):
         self.switch_to_HomePage = switch_to_HomePage
         self.switch_to_loginn = switch_to_login
         self.img = ImageTk.PhotoImage(Image.open('images/signup.png'))
-        tk.Label(self, image=self.img, bg='white').place(x=5, y=110)
+        tk.Label(self, image=self.img, bg='white').place(x=5, y=140)
         self.frame = ctk.CTkFrame(
             self, width=350, height=550, fg_color="white", bg_color="white")
         self.frame.place(x=480, y=10)
