@@ -12,7 +12,7 @@ class LoginPage(ctk.CTkFrame):
         super().__init__(root, fg_color="white")
         self.user_id = None
         self.img = ImageTk.PhotoImage(Image.open('images\login.png'))
-        ctk.CTkLabel(self, image=self.img, bg_color='white',
+        tk.Label(self, image=self.img, bg='white',
                      text="").place(x=10, y=110)
         self.frame = ctk.CTkFrame(
             self, width=350, height=350, fg_color="white")
