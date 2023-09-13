@@ -20,7 +20,8 @@ def convertToBinaryData(filename):
 class AddProductPage(ctk.CTkFrame):
     def __init__(self, parent, switch_to_HomePage, user_id):
         super().__init__(parent, fg_color="white")
-        self.file_path = None
+        self.file = None
+        self.file_path=None
         self.parent = parent
         self.user_id = user_id
         self.img = PhotoImage(file='images\Add_product.png')
@@ -62,7 +63,9 @@ class AddProductPage(ctk.CTkFrame):
     def upload_file(self):
         f_types = [('Jpg Files', '*.jpg'), ('PNG Files', '*.png')]
         self.file_path = tk.filedialog.askopenfilename(filetypes=f_types)
-        self.file_path = convertToBinaryData(self.file_path)
+        if(len(self.file_path)==0):
+            self.file_path="images/stock_temp.png";
+        self.file = convertToBinaryData(self.file_path)
 
     def create_entry(self, placeholder, y, on_enter, on_leave):
         entry = ctk.CTkEntry(self.frame, width=350, text_color="black",fg_color="white", border_width=0,
@@ -149,16 +152,17 @@ class AddProductPage(ctk.CTkFrame):
         self.description.delete(0, 'end')
         self.name.insert(0, 'Name')
         self.price.insert(0, 'Price')
-        self.file_path = None
+        self.file = None
         self.description.insert(0, "Description")
 
     def add_product_command(self):
-        if (self.file_path is None):
+        if (os.path.exists(self.file_path) or len(self.file_path)==0 ):
             messagebox.showinfo(
                 "Caution!", "select valid image", parent=self.parent)
             return
+        print(len(self.file_path))
         product = Product(user_id=self.user_id, price=self.price.get(), product_name=self.name.get(
-        ), category=self.selected_category.get(), picture=self.file_path, description=self.description.get(), status=1)
+        ), category=self.selected_category.get(), picture=self.file, description=self.description.get(), status=1)
         add_product(product)
         messagebox.showinfo("Done", "Added successfully", parent=self.parent)
         self.reset()

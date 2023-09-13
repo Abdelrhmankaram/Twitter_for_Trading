@@ -241,23 +241,10 @@ def get_phone(user_id):
     cur.close()
 
 def main():
-    cur = conn.cursor()
-    cur.execute("""
-            
-    CREATE TABLE product (
-        product_id INTEGER PRIMARY KEY,
-        user_id INTEGER,
-        product_name TEXT,
-        category TEXT,
-        status TEXT,
-        picture BLOB,
-        description TEXT,
-        price INTEGER,
-        FOREIGN KEY (user_id) REFERENCES user(user_id)
-    );    
-    """)
-    conn.commit()
-    cur.close()
+    delete_product(6)
+    
+main()
+    
     
 #main()
 

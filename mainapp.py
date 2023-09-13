@@ -11,7 +11,6 @@ import ctypes
 
 myappid = u'mycompany.myproduct.subproduct.version'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
-
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
