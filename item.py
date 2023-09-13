@@ -1,3 +1,4 @@
+import io
 import tkinter as tk
 import customtkinter as ctk
 from PIL import Image, ImageTk
@@ -10,7 +11,7 @@ class CustomItem(ctk.CTkFrame):
         super().__init__(parent, fg_color="white", bg_color="white")
         self.configure(bg_color="white", height=170, width=500, cursor='hand2')
         self.product_id = product_object.product_id
-        self.pic = Image.open(product_object.picture)
+        self.pic = Image.open(io.BytesIO(product_object.picture))
         self.pic = self.pic.resize((160, 120))
         self.img = ImageTk.PhotoImage(self.pic)
         self.img_label = tk.Label(
@@ -33,8 +34,8 @@ class CustomItem(ctk.CTkFrame):
 
         self.price_label = tk.Label(self, text=str(
             product_object.price)+"$", font=("Arial", 20), bg="white", fg="green")
-        x = self.winfo_width() - len(str(product_object.price)) * 14
-        self.price_label.place(x=415, y=77)
+        x = self.winfo_width() +450 - len(str(product_object.price)) * 14
+        self.price_label.place(x=x, y=77)
 
         self.bind("<Button>", lambda e: print("hello"))
         # elf.img_label.bind("<Button>", lambda e: print("hello"))
@@ -61,8 +62,13 @@ class ItemListPage(ctk.CTkFrame):
             self.canvas, bg_color='white', fg_color="white")
         self.canvas.create_window(
             (0, 0), window=self.frame, anchor='nw', width=500)  # Set frame width
-
+        self.canvas.bind('<MouseWheel>', self.on_mousewheel)
         self.populate_frame()
+        
+        
+    def on_mousewheel(self, event):
+        # Update the scroll position of the canvas based on the mouse wheel movement
+        self.canvas.yview_scroll(int(-1*(event.delta/120)), 'units')
 
     def populate_frame(self):
         y_position = 10
@@ -73,3 +79,4 @@ class ItemListPage(ctk.CTkFrame):
 
         self.frame.update_idletasks()
         self.canvas.config(scrollregion=self.canvas.bbox('all'))
+        

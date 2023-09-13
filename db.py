@@ -224,6 +224,7 @@ def get_products_by_user(user_id):
         traceback.print_exc()
 
     cur.close()
+
 def get_phone(user_id):
     cur = conn.cursor()
     try:
@@ -238,13 +239,27 @@ def get_phone(user_id):
         traceback.print_exc()
 
     cur.close()
+
 def main():
-    for i in range(1,15):
-        delete_product(i)
+    cur = conn.cursor()
+    cur.execute("""
+            
+    CREATE TABLE product (
+        product_id INTEGER PRIMARY KEY,
+        user_id INTEGER,
+        product_name TEXT,
+        category TEXT,
+        status TEXT,
+        picture BLOB,
+        description TEXT,
+        price INTEGER,
+        FOREIGN KEY (user_id) REFERENCES user(user_id)
+    );    
+    """)
+    conn.commit()
+    cur.close()
     
-
-main()
-
+#main()
 
 # cur.execute("""           
 #     CREATE TABLE user (
@@ -261,21 +276,7 @@ main()
 # conn.commit()
 
 
-# cur.execute("""
-            
-#     CREATE TABLE product (
-#         product_id INTEGER PRIMARY KEY,
-#         user_id INTEGER,
-#         product_name TEXT,
-#         category TEXT,
-#         status TEXT,
-#         picture TEXT,
-#         description TEXT,
-#         price INTEGER,
-#         FOREIGN KEY (user_id) REFERENCES user(user_id)
-#     );
-         
-# """)
+
  
 
 # conn.commit()

@@ -10,6 +10,12 @@ from tkinter import filedialog
 from tkinter.filedialog import askopenfile
 import os.path
 
+def convertToBinaryData(filename):
+    # Convert digital data to binary format
+    with open(filename, 'rb') as file:
+        binaryData = file.read()
+    return binaryData
+
 
 class AddProductPage(ctk.CTkFrame):
     def __init__(self, parent, switch_to_HomePage, user_id):
@@ -56,6 +62,7 @@ class AddProductPage(ctk.CTkFrame):
     def upload_file(self):
         f_types = [('Jpg Files', '*.jpg'), ('PNG Files', '*.png')]
         self.file_path = tk.filedialog.askopenfilename(filetypes=f_types)
+        self.file_path = convertToBinaryData(self.file_path)
 
     def create_entry(self, placeholder, y, on_enter, on_leave):
         entry = ctk.CTkEntry(self.frame, width=350, text_color="black",fg_color="white", border_width=0,
