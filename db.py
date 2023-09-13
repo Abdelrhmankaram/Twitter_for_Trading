@@ -239,7 +239,7 @@ def get_phone(user_id):
 
     cur.close()
 def main():
-    for i in range(2,15):
+    for i in range(1,15):
         delete_product(i)
     
 
